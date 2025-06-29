@@ -1,5 +1,5 @@
 {
-	"name": "ink-table",
+	"name": "@nadle/ink-table",
 	"version": "0.0.1",
 	"description": "A table component for Ink.",
 	"type": "module",
