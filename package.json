@@ -36,5 +36,6 @@
 		"*": "cspell --no-must-find-files --gitignore",
 		"*.ts": "eslint --fix",
 		"*.{ts,yml,json}": "prettier --write"
-	}
+	},
+	"prettier": "@nadle/prettier-config"
 }

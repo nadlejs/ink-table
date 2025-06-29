@@ -6,7 +6,7 @@ import stylistic from "@stylistic/eslint-plugin";
 import perfectionist from "eslint-plugin-perfectionist";
 import unusedImports from "eslint-plugin-unused-imports";
 
-export default tsEslint.config(
+const config: ReturnType<typeof tsEslint.config> = tsEslint.config(
 	eslint.configs.recommended,
 	tsEslint.configs.recommended,
 	nPlugin.configs["flat/recommended-module"],
@@ -57,7 +57,12 @@ export default tsEslint.config(
 			"@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", fixStyle: "inline-type-imports" }],
 			"@typescript-eslint/no-unused-vars": [
 				"error",
-				{ argsIgnorePattern: "^_", ignoreRestSiblings: true, destructuredArrayIgnorePattern: "^_", caughtErrorsIgnorePattern: "^error$" }
+				{
+					argsIgnorePattern: "^_",
+					ignoreRestSiblings: true,
+					destructuredArrayIgnorePattern: "^_",
+					caughtErrorsIgnorePattern: "^error$"
+				}
 			],
 
 			"perfectionist/sort-named-imports": ["error", { type: "line-length" }],
@@ -67,12 +72,20 @@ export default tsEslint.config(
 			"perfectionist/sort-object-types": ["error", { type: "line-length", partitionByNewLine: true }],
 			"perfectionist/sort-imports": [
 				"error",
-				{ type: "line-length", newlinesBetween: "always", groups: ["side-effect", "builtin", "external", ["parent", "sibling", "index"]] }
+				{
+					type: "line-length",
+					newlinesBetween: "always",
+					groups: ["side-effect", "builtin", "external", ["parent", "sibling", "index"]]
+				}
 			],
 
 			"stylistic/padding-line-between-statements": [
 				"error",
-				{ prev: "*", blankLine: "always", next: ["if", "while", "for", "switch", "try", "do", "return"] },
+				{
+					prev: "*",
+					blankLine: "always",
+					next: ["if", "while", "for", "switch", "try", "do", "return"]
+				},
 				{ next: "*", prev: "block-like", blankLine: "always" }
 			]
 		}
@@ -123,3 +136,5 @@ export default tsEslint.config(
 		}
 	}
 );
+
+export default config;
